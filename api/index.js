@@ -1,8 +1,12 @@
 import express from "express";
 import mongoose from "mongoose";
 import dotenv from "dotenv";
+import AuthRoute from "./routes/AuthRoute.js";
 
+// CONST
 dotenv.config();
+const app = express();
+app.use(express.json());
 
 // MONGOOSE
 mongoose
@@ -10,7 +14,7 @@ mongoose
   .then(() => console.log("Connected to MongoDB"))
   .catch((err) => console.log(err));
 
-// CONST
-const app = express();
+// REGIS ROUTES
+app.use('/api/auth', AuthRoute);
 
 app.listen(3000, () => console.log("Server running on port 3000"));
