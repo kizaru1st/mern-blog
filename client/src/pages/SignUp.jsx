@@ -1,6 +1,7 @@
-import { Link , useNavigate} from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Alert, Button, Label, Spinner, TextInput } from "flowbite-react";
 import { useState } from "react";
+import axios from "axios";
 
 export default function SignUp() {
   const [formData, setFormData] = useState({});
@@ -20,21 +21,16 @@ export default function SignUp() {
     try {
       setLoading(true);
       setErrorMessage(null);
-      const res = await fetch("/api/v1/auth/signup", {
-        method: "POST",
+      const res = await axios.post("/api/v1/auth/signup", formData, {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(formData),
       });
-      const data = await res.json();
-      if (data.success === false) {
-        return setErrorMessage(data.message);
+      if (res.data.success === false) {
+        return setErrorMessage(res.data.message);
       }
       setLoading(false);
-      if (res.ok) {
-        navigate("/sign-in");
-      }
+      navigate("/sign-in");
     } catch (error) {
       setErrorMessage(error.message);
       setLoading(false);
