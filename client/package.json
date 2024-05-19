@@ -12,6 +12,7 @@
   "dependencies": {
     "@react-icons/all-files": "^4.1.0",
     "@reduxjs/toolkit": "^2.2.2",
+    "firebase": "^10.11.0",
     "flowbite-react": "^0.7.5",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
@@ -21,10 +22,12 @@
     "redux-persist": "^6.0.0"
   },
   "devDependencies": {
+    "@types/dotenv": "^8.2.0",
     "@types/react": "^18.2.55",
     "@types/react-dom": "^18.2.19",
     "@vitejs/plugin-react-swc": "^3.5.0",
     "autoprefixer": "^10.4.17",
+    "dotenv": "^16.4.5",
     "eslint": "^8.56.0",
     "eslint-plugin-react": "^7.33.2",
     "eslint-plugin-react-hooks": "^4.6.0",
