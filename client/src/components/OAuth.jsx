@@ -26,8 +26,6 @@ export default function OAuth() {
           name: resultsFromGoogle.user.displayName
         }),
       })
-      console.log("after res");
-      console.log("this is response", response);
       if (!response.ok) {
         const errorData = await response.json();
         console.error('Error during Google sign-in:', errorData);
